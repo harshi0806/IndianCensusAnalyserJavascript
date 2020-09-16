@@ -22,4 +22,9 @@ describe("IndiaStateCodeAnalyser", function () {
             assert.equal(count, 37);
         });
     });
+    it("Given wrong INDIA_STATE_CODE_FILE_PATH", function () {
+        CensusAnalyser.loadCsvData(INDIA_STATE_CENSUS_FILE_PATH, function (count) {
+            assert.notEqual(count, 30);
+        });
+    });
 });
