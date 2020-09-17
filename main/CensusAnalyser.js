@@ -18,7 +18,7 @@ class CensusAnalyser {
             console.log("Error encountered");
         });
     }
-    
+
     loadCsvData(path, callback) {
         let count = 0;
         fs.createReadStream(path)
@@ -48,9 +48,16 @@ class CensusAnalyser {
         }); 
     }
 
-    sortByPopulationDensity(path, callback) {
+    sortByPopulation(path, callback) {
         this.csvToJsonConversion(path, function (data) {
         data.sort((a, b) => a.Population - b.Population);
+        return callback(data);    
+        });
+    }
+
+    sortByPopulationDensity(path, callback) {
+        this.csvToJsonConversion(path, function (data) {
+        data.sort((a, b) => a.DensityPerSqKm  - b.DensityPerSqKm );
         return callback(data);    
         });
     }
