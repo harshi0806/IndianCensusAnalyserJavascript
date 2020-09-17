@@ -66,4 +66,9 @@ describe("USCensusAnalyser", function () {
             assert.equal(data, "California");
         });
     });
+    it("givenUSCensusData_WhenSortedOnPopulation_ShouldReturnSortedData", function () {
+        CensusAnalyser.sortByPopulationDensity(US_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "District of Columbia");
+        });
+    });
 });
