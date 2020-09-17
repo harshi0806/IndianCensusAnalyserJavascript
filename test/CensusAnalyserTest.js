@@ -31,6 +31,11 @@ describe("IndiaStateCensusAnalyser", function () {
             assert.equal(data, "Bihar");
         });
     });
+    it("givenIndiaCensusData_WhenSortedOnArea_ShouldReturnSortedData", function () {
+        CensusAnalyser.sortByArea(INDIA_STATE_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "Rajasthan");
+        });
+    });
 });
 describe("IndiaStateCodeAnalyser", function () {
     it("Loads the number of records 37 from csv file", function () {

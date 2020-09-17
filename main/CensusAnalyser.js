@@ -61,6 +61,13 @@ class CensusAnalyser {
         return callback(data);    
         });
     }
+
+    sortByArea(path, callback) {
+        this.csvToJsonConversion(path, function (data) {
+        data.sort((a, b) => a.AreaInSqKm   - b.AreaInSqKm );
+        return callback(data);    
+        });
+    }
 }
 
 module.exports = CensusAnalyser;
