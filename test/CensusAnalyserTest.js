@@ -61,4 +61,9 @@ describe("USCensusAnalyser", function () {
             assert.equal(count, 51);
         });
     });
+    it("givenUSCensusData_WhenSortedOnPopulation_ShouldReturnSortedData", function () {
+        CensusAnalyser.sortByPopulation(US_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "California");
+        });
+    });
 });
