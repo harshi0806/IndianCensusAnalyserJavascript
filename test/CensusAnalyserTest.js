@@ -61,14 +61,19 @@ describe("USCensusAnalyser", function () {
             assert.equal(count, 51);
         });
     });
-    it("givenUSCensusData_WhenSortedOnPopulation_ShouldReturnSortedData", function () {
+    it("givenUSCensusData_WhenSortedOnPopulation_ShouldReturnEqual", function () {
         CensusAnalyser.sortByPopulation(US_CENSUS_FILE_PATH, function (data) {
             assert.equal(data, "California");
         });
     });
-    it("givenUSCensusData_WhenSortedOnPopulation_ShouldReturnSortedData", function () {
+    it("givenUSCensusData_WhenSortedOnPopulationDensity_ShouldReturnEqual", function () {
         CensusAnalyser.sortByPopulationDensity(US_CENSUS_FILE_PATH, function (data) {
             assert.equal(data, "District of Columbia");
+        });
+    });
+    it("givenUSCensusData_WhenSortedOnArea_ShouldReturnEqual", function () {
+        CensusAnalyser.sortByArea(US_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "Alaska");
         });
     });
 });
