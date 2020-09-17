@@ -3,6 +3,22 @@ const fs = require('fs');
 const csv = require('csv-parser');
 
 class CensusAnalyser {
+    csvToJsonConversion(path, callback) {
+        var promise = new Promise(function(resolve, reject) {
+            csvtoJson()
+            .fromFile(path)
+            resolve("Converted successfully");
+            reject("Conversion rejected");
+        });
+        promise.
+        then(function () {
+            return callback(data);
+        }).
+        catch(function () {
+            console.log("Error encountered");
+        });
+    }
+    
     loadCsvData(path, callback) {
         let count = 0;
         fs.createReadStream(path)
@@ -26,12 +42,17 @@ class CensusAnalyser {
     }
 
     sortOrderByStateCode(path, callback) {
-        csvToJson()
-        .fromFile(path)
-        .then((stateData) => {
-        let sortByStateCode = stateData.sort((a, b) => a.StateCode - b.StateCode)
-        return callback(sortByStateCode);
+        this.csvToJsonConversion(path, function (data) {
+        data.sort((a, b) => a.StateCode - b.StateCode)
+        return callback(data);
         }); 
+    }
+
+    sortByPopulationDensity(path, callback) {
+        this.csvToJsonConversion(path, function (data) {
+        data.sort((a, b) => a.Population - b.Population);
+        return callback(data);    
+        });
     }
 }
 
