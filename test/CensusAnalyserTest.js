@@ -33,4 +33,9 @@ describe("IndiaStateCodeAnalyser", function () {
             assert.notEqual(INDIA_STATE_CENSUS_FILE_PATH, INDIA_STATE_CODE_FILE_PATH);
         });
     });
+    it("givenIndiaStateCodeFile_WhenSortedByStateCode_ShouldReturnEqual", function () {
+        CensusAnalyser.sortOrderByStateCode(INDIA_STATE_CODE_FILE_PATH, function (sortByStateCode) {
+            assert.equal(sortByStateCode, "AD");
+        });
+    });
 });

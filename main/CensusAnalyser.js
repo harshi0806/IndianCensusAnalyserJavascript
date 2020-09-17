@@ -21,9 +21,17 @@ class CensusAnalyser {
         .fromFile(path)
         .then((stateData) => {
             let sortByState = stateData.sort((a , b) => a.State - b.State)
-            console.log("Sort by State Data: "+ sortByState);
             return callback(sortByState);
         });
+    }
+
+    sortOrderByStateCode(path, callback) {
+        csvToJson()
+        .fromFile(path)
+        .then((stateData) => {
+        let sortByStateCode = stateData.sort((a, b) => a.StateCode - b.StateCode)
+        return callback(sortByStateCode);
+        }); 
     }
 }
 
