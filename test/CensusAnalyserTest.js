@@ -1,4 +1,3 @@
-const csvToJson = require('csvtojson');
 const assert = require("chai").assert;
 const censusAnalyser = require("../main/CensusAnalyser");
 const INDIA_STATE_CENSUS_FILE_PATH = "./resources/IndiaStateCensusData.csv";

@@ -1,3 +1,22 @@
+/*************************************************************
+ *
+ * Execution       : default node cmd> node CensusAnalyser.js
+ * Purpose         : Analayze India & US Census Data
+ *
+ * @description    : Analayze India & US Census Data from csvfile,
+ *                   check number of records in csvFiles 
+ *                   and sort data by state, population,
+ *                   population density, totalArea, etc. 
+ *                   to compute new data as per sort accordingly.
+ *
+ * @file           : CensusAnalyser.js
+ * @overview       : Analayze India & US Census Data
+ * @module         : Node.js, npm and local packages 
+ * @version        : 1.0
+ * @since          : 18/09/2020
+ *
+ * **********************************************************/
+
 const csvtoJson = require('csvtojson');
 const fs = require('fs');
 const csv = require('csv-parser');
