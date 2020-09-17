@@ -3,6 +3,7 @@ const assert = require("chai").assert;
 const censusAnalyser = require("../main/CensusAnalyser");
 const INDIA_STATE_CENSUS_FILE_PATH = "./resources/IndiaStateCensusData.csv";
 const INDIA_STATE_CODE_FILE_PATH = "./resources/IndiaStateCode.csv";
+const US_CENSUS_FILE_PATH = "./resources/USCensusData.csv";
 
 var CensusAnalyser = new censusAnalyser();
 describe("IndiaStateCensusAnalyser", function () {
@@ -51,6 +52,13 @@ describe("IndiaStateCodeAnalyser", function () {
     it("givenIndiaStateCodeFile_WhenSortedByStateCode_ShouldReturnEqual", function () {
         CensusAnalyser.sortOrderByStateCode(INDIA_STATE_CODE_FILE_PATH, function (data) {
             assert.equal(data, "AD");
+        });
+    });
+});
+describe("USCensusAnalyser", function () {
+    it("Loads the number of records 51 from csv file", function () {
+        CensusAnalyser.loadCsvData(US_CENSUS_FILE_PATH, function (count) {
+            assert.equal(count, 51);
         });
     });
 });
