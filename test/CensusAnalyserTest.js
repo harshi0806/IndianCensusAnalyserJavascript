@@ -1,3 +1,4 @@
+const csvToJson = require('csvtojson');
 const assert = require("chai").assert;
 const censusAnalyser = require("../main/CensusAnalyser");
 const INDIA_STATE_CENSUS_FILE_PATH = "./resources/IndiaStateCensusData.csv";
@@ -10,9 +11,14 @@ describe("IndiaStateCensusAnalyser", function () {
             assert.equal(count, 29);
         });
     });
-    it("Given wrong INDIA_STATE_CENSUS_FILE_PATH", function () {
-        CensusAnalyser.loadCsvData(INDIA_STATE_CENSUS_FILE_PATH, function (count) {
-            assert.notEqual(count, 30);
+    it("givenIndiaStateCensusFile_WhenWrongFilePath_ShouldReturnNotEqual", function () {
+        CensusAnalyser.loadCsvData(INDIA_STATE_CENSUS_FILE_PATH, function (INDIA_STATE_CENSUS_FILE_PATH) {
+            assert.notEqual(INDIA_STATE_CODE_FILE_PATH, INDIA_STATE_CENSUS_FILE_PATH);
+        });
+    });
+    it("givenIndiaCensusData_WhenSortedOnState_ShouldReturnSortedData", function () {
+        CensusAnalyser.sortOrderByState(INDIA_STATE_CENSUS_FILE_PATH, function (sortByState) {
+            assert.equal(sortByState, "Andhra Pradesh");
         });
     });
 });
@@ -22,9 +28,9 @@ describe("IndiaStateCodeAnalyser", function () {
             assert.equal(count, 37);
         });
     });
-    it("Given wrong INDIA_STATE_CODE_FILE_PATH", function () {
-        CensusAnalyser.loadCsvData(INDIA_STATE_CENSUS_FILE_PATH, function (count) {
-            assert.notEqual(count, 30);
+    it("givenIndiaStateCodeFile_WhenWrongFilePath_ShouldReturnNotEqual", function () {
+        CensusAnalyser.loadCsvData(INDIA_STATE_CENSUS_FILE_PATH, function (INDIA_STATE_CODE_FILE_PATH) {
+            assert.notEqual(INDIA_STATE_CENSUS_FILE_PATH, INDIA_STATE_CODE_FILE_PATH);
         });
     });
 });
