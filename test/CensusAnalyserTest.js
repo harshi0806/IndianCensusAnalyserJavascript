@@ -17,13 +17,18 @@ describe("IndiaStateCensusAnalyser", function () {
         });
     });
     it("givenIndiaCensusData_WhenSortedOnState_ShouldReturnSortedData", function () {
-        CensusAnalyser.sortOrderByState(INDIA_STATE_CENSUS_FILE_PATH, function (sortByState) {
-            assert.equal(sortByState, "Andhra Pradesh");
+        CensusAnalyser.sortOrderByState(INDIA_STATE_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "Andhra Pradesh");
         });
     });
     it("givenIndiaCensusData_WhenSortedOnPopulation_ShouldReturnSortedData", function () {
-        CensusAnalyser.sortByPopulationDensity(INDIA_STATE_CENSUS_FILE_PATH, function (sortByPopulation) {
-            assert.equal(sortByPopulation, "Uttar Pradesh");
+        CensusAnalyser.sortByPopulation(INDIA_STATE_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "Uttar Pradesh");
+        });
+    });
+    it("givenIndiaCensusData_WhenSortedOnPopulationDensity_ShouldReturnSortedData", function () {
+        CensusAnalyser.sortByPopulationDensity(INDIA_STATE_CENSUS_FILE_PATH, function (data) {
+            assert.equal(data, "Bihar");
         });
     });
 });
@@ -39,8 +44,8 @@ describe("IndiaStateCodeAnalyser", function () {
         });
     });
     it("givenIndiaStateCodeFile_WhenSortedByStateCode_ShouldReturnEqual", function () {
-        CensusAnalyser.sortOrderByStateCode(INDIA_STATE_CODE_FILE_PATH, function (sortByStateCode) {
-            assert.equal(sortByStateCode, "AD");
+        CensusAnalyser.sortOrderByStateCode(INDIA_STATE_CODE_FILE_PATH, function (data) {
+            assert.equal(data, "AD");
         });
     });
 });
